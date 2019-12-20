@@ -15,7 +15,7 @@ class ReloadDataViewController: UIViewController {
     }
     let mountainsController = EmployeeModel()
     let searchBar = UISearchBar(frame: .zero)
-    var mountainsCollectionView: UICollectionView!
+    var employeeCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, EmployeeModel.Employee>!
     var nameFilter: String?
     
@@ -27,7 +27,7 @@ class ReloadDataViewController: UIViewController {
         super.viewDidLoad()
         title = "Reload Data 💩"
         configureHierarchy()
-        mountainsCollectionView.dataSource = self
+        employeeCollectionView.dataSource = self
         performQuery(with: nil)
     }
 }
@@ -36,7 +36,7 @@ extension ReloadDataViewController {
     func performQuery(with filter: String?) {
         employeeModel = mountainsController.filteredEmployees(with: filter).sorted { $0.name < $1.name }
 
-        mountainsCollectionView.reloadData()
+        employeeCollectionView.reloadData()
     }
 }
 
@@ -101,7 +101,7 @@ extension ReloadDataViewController {
         constraints.append(searchBar.topAnchor.constraint(
             equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0))
         NSLayoutConstraint.activate(constraints)
-        mountainsCollectionView = collectionView
+        employeeCollectionView = collectionView
 
         searchBar.delegate = self
     }

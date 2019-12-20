@@ -15,7 +15,7 @@ class DiffableViewController: UIViewController {
     }
     let employeeModel = EmployeeModel()
     let searchBar = UISearchBar(frame: .zero)
-    var mountainsCollectionView: UICollectionView!
+    var employeeCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, EmployeeModel.Employee>!
     var nameFilter: String?
 
@@ -33,7 +33,7 @@ class DiffableViewController: UIViewController {
 extension DiffableViewController {
     func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource
-            <Section, EmployeeModel.Employee>(collectionView: mountainsCollectionView) {
+            <Section, EmployeeModel.Employee>(collectionView: employeeCollectionView) {
                 (collectionView: UICollectionView, indexPath: IndexPath,
                 mountain: EmployeeModel.Employee) -> UICollectionViewCell? in
             guard let mountainCell = collectionView.dequeueReusableCell(
@@ -100,7 +100,7 @@ extension DiffableViewController {
         constraints.append(searchBar.topAnchor.constraint(
             equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0))
         NSLayoutConstraint.activate(constraints)
-        mountainsCollectionView = collectionView
+        employeeCollectionView = collectionView
 
         searchBar.delegate = self
     }
