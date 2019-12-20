@@ -44,11 +44,11 @@ extension DiffableViewController {
         }
     }
     func performQuery(with filter: String?) {
-        let mountains = employeeModel.filteredEmployees(with: filter).sorted { $0.name < $1.name }
+        let employees = employeeModel.filteredEmployees(with: filter).sorted { $0.name < $1.name }
 
         var snapshot = NSDiffableDataSourceSnapshot<Section, EmployeeModel.Employee>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(mountains)
+        snapshot.appendItems(employees)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

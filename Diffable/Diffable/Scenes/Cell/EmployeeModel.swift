@@ -32,28 +32,28 @@ class EmployeeModel {
         }
     }
     func filteredEmployees(with filter: String? = nil, limit: Int? = nil) -> [Employee] {
-        let filtered = mountains.filter { $0.contains(filter) }
+        let filtered = employees.filter { $0.contains(filter) }
         if let limit = limit {
             return Array(filtered.prefix(through: limit))
         } else {
             return filtered
         }
     }
-    lazy var mountains: [Employee] = {
-        return generateMountains()
+    lazy var employees: [Employee] = {
+        return generateEmployees()
     }()
 }
 
 extension EmployeeModel {
-    private func generateMountains() -> [Employee] {
+    private func generateEmployees() -> [Employee] {
         let components = employeeRawData.components(separatedBy: CharacterSet.newlines)
-        var mountains = [Employee]()
+        var employees = [Employee]()
         for line in components {
-            let mountainComponents = line.components(separatedBy: ",")
-            let name = mountainComponents[0]
-            let height = mountainComponents[1]
-            mountains.append(Employee(name: name, height: height))
+            let employeeComponents = line.components(separatedBy: ",")
+            let name = employeeComponents[0]
+            let height = employeeComponents[1]
+            employees.append(Employee(name: name, height: height))
         }
-        return mountains
+        return employees
     }
 }

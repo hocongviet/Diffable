@@ -13,13 +13,13 @@ class ReloadDataViewController: UIViewController {
     enum Section: CaseIterable {
         case main
     }
-    let mountainsController = EmployeeModel()
+    let employeeModel = EmployeeModel()
     let searchBar = UISearchBar(frame: .zero)
     var employeeCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, EmployeeModel.Employee>!
     var nameFilter: String?
     
-    lazy var employeeModel = mountainsController.mountains
+    lazy var employee = employeeModel.employees
 
     let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
     
@@ -34,7 +34,7 @@ class ReloadDataViewController: UIViewController {
 
 extension ReloadDataViewController {
     func performQuery(with filter: String?) {
-        employeeModel = mountainsController.filteredEmployees(with: filter).sorted { $0.name < $1.name }
+        employee = employeeModel.filteredEmployees(with: filter).sorted { $0.name < $1.name }
 
         employeeCollectionView.reloadData()
     }
@@ -42,14 +42,14 @@ extension ReloadDataViewController {
 
 extension ReloadDataViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return employeeModel.count
+        return employee.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let mountainCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: LabelCell.reuseIdentifier, for: indexPath) as? LabelCell else {
                 fatalError("Cannot create new cell") }
-        mountainCell.label.text = employeeModel[indexPath.item].name + ". Отдел " + employeeModel[indexPath.item].height
+        mountainCell.label.text = employee[indexPath.item].name + ". Отдел " + employee[indexPath.item].height
         return mountainCell
     }
 }
