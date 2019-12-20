@@ -1,5 +1,5 @@
 //
-//  EmployeesViewController.swift
+//  ReloadDataViewController.swift
 //  Diffable
 //
 //  Created by Vladimir Ho on 20.12.2019.
@@ -8,52 +8,53 @@
 
 import UIKit
 
-class EmployeesViewController: UIViewController {
+class ReloadDataViewController: UIViewController {
 
     enum Section: CaseIterable {
         case main
     }
-    let employeeModel = EmployeeModel()
+    let mountainsController = EmployeeModel()
     let searchBar = UISearchBar(frame: .zero)
     var mountainsCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, EmployeeModel.Employee>!
     var nameFilter: String?
+    
+    lazy var employeeModel = mountainsController.mountains
 
     let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Diffable 😎"
+        title = "Reload Data 💩"
         configureHierarchy()
-        configureDataSource()
+        mountainsCollectionView.dataSource = self
         performQuery(with: nil)
     }
 }
 
-extension EmployeesViewController {
-    func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource
-            <Section, EmployeeModel.Employee>(collectionView: mountainsCollectionView) {
-                (collectionView: UICollectionView, indexPath: IndexPath,
-                mountain: EmployeeModel.Employee) -> UICollectionViewCell? in
-            guard let mountainCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: LabelCell.reuseIdentifier, for: indexPath) as? LabelCell else {
-                    fatalError("Cannot create new cell") }
-            mountainCell.label.text = mountain.name + ". Отдел " + mountain.height
-            return mountainCell
-        }
-    }
+extension ReloadDataViewController {
     func performQuery(with filter: String?) {
-        let mountains = employeeModel.filteredEmployees(with: filter).sorted { $0.name < $1.name }
+        employeeModel = mountainsController.filteredEmployees(with: filter).sorted { $0.name < $1.name }
 
-        var snapshot = NSDiffableDataSourceSnapshot<Section, EmployeeModel.Employee>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(mountains)
-        dataSource.apply(snapshot, animatingDifferences: true)
+        mountainsCollectionView.reloadData()
     }
 }
 
-extension EmployeesViewController {
+extension ReloadDataViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return employeeModel.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let mountainCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: LabelCell.reuseIdentifier, for: indexPath) as? LabelCell else {
+                fatalError("Cannot create new cell") }
+        mountainCell.label.text = employeeModel[indexPath.item].name + ". Отдел " + employeeModel[indexPath.item].height
+        return mountainCell
+    }
+}
+
+extension ReloadDataViewController {
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
             layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
@@ -106,8 +107,9 @@ extension EmployeesViewController {
     }
 }
 
-extension EmployeesViewController: UISearchBarDelegate {
+extension ReloadDataViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         showLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.hideLoading()
@@ -119,7 +121,7 @@ extension EmployeesViewController: UISearchBarDelegate {
     }
 }
 
-extension EmployeesViewController {
+extension ReloadDataViewController {
     
     func showLoading() {
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
@@ -135,4 +137,3 @@ extension EmployeesViewController {
         alert.dismiss(animated: true)
     }
 }
-

@@ -14,11 +14,11 @@
 		EA3ED5BD23AC4AAE00C9ADA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3ED5BC23AC4AAE00C9ADA4 /* Assets.xcassets */; };
 		EA3ED5C023AC4AAE00C9ADA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3ED5BE23AC4AAE00C9ADA4 /* LaunchScreen.storyboard */; };
 		EA3ED5C823AC4ACD00C9ADA4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5C723AC4ACD00C9ADA4 /* TabBarController.swift */; };
-		EA3ED5CA23AC4B1000C9ADA4 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5C923AC4B1000C9ADA4 /* EmployeesViewController.swift */; };
+		EA3ED5CA23AC4B1000C9ADA4 /* DiffableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5C923AC4B1000C9ADA4 /* DiffableViewController.swift */; };
 		EA3ED5CC23AC4B3400C9ADA4 /* EmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5CB23AC4B3400C9ADA4 /* EmployeeModel.swift */; };
 		EA3ED5CE23AC4B6A00C9ADA4 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5CD23AC4B6A00C9ADA4 /* LabelCell.swift */; };
 		EA3ED5D023AC4B9700C9ADA4 /* RawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5CF23AC4B9700C9ADA4 /* RawData.swift */; };
-		EA3ED5D223AC528500C9ADA4 /* EmployeesViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5D123AC528500C9ADA4 /* EmployeesViewController2.swift */; };
+		EA3ED5D223AC528500C9ADA4 /* ReloadDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3ED5D123AC528500C9ADA4 /* ReloadDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +31,11 @@
 		EA3ED5BF23AC4AAE00C9ADA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA3ED5C123AC4AAE00C9ADA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA3ED5C723AC4ACD00C9ADA4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		EA3ED5C923AC4B1000C9ADA4 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
+		EA3ED5C923AC4B1000C9ADA4 /* DiffableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableViewController.swift; sourceTree = "<group>"; };
 		EA3ED5CB23AC4B3400C9ADA4 /* EmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeModel.swift; sourceTree = "<group>"; };
 		EA3ED5CD23AC4B6A00C9ADA4 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		EA3ED5CF23AC4B9700C9ADA4 /* RawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawData.swift; sourceTree = "<group>"; };
-		EA3ED5D123AC528500C9ADA4 /* EmployeesViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController2.swift; sourceTree = "<group>"; };
+		EA3ED5D123AC528500C9ADA4 /* ReloadDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +71,8 @@
 				EA3ED5B323AC4AAC00C9ADA4 /* AppDelegate.swift */,
 				EA3ED5B523AC4AAC00C9ADA4 /* SceneDelegate.swift */,
 				EA3ED5C723AC4ACD00C9ADA4 /* TabBarController.swift */,
-				EA3ED5D123AC528500C9ADA4 /* EmployeesViewController2.swift */,
-				EA3ED5C923AC4B1000C9ADA4 /* EmployeesViewController.swift */,
+				EA3ED5D123AC528500C9ADA4 /* ReloadDataViewController.swift */,
+				EA3ED5C923AC4B1000C9ADA4 /* DiffableViewController.swift */,
 				EA3ED5CD23AC4B6A00C9ADA4 /* LabelCell.swift */,
 				EA3ED5CF23AC4B9700C9ADA4 /* RawData.swift */,
 				EA3ED5CB23AC4B3400C9ADA4 /* EmployeeModel.swift */,
@@ -158,13 +158,13 @@
 			files = (
 				EA3ED5B823AC4AAC00C9ADA4 /* ViewController.swift in Sources */,
 				EA3ED5C823AC4ACD00C9ADA4 /* TabBarController.swift in Sources */,
-				EA3ED5D223AC528500C9ADA4 /* EmployeesViewController2.swift in Sources */,
+				EA3ED5D223AC528500C9ADA4 /* ReloadDataViewController.swift in Sources */,
 				EA3ED5CE23AC4B6A00C9ADA4 /* LabelCell.swift in Sources */,
 				EA3ED5CC23AC4B3400C9ADA4 /* EmployeeModel.swift in Sources */,
 				EA3ED5D023AC4B9700C9ADA4 /* RawData.swift in Sources */,
 				EA3ED5B423AC4AAC00C9ADA4 /* AppDelegate.swift in Sources */,
 				EA3ED5B623AC4AAC00C9ADA4 /* SceneDelegate.swift in Sources */,
-				EA3ED5CA23AC4B1000C9ADA4 /* EmployeesViewController.swift in Sources */,
+				EA3ED5CA23AC4B1000C9ADA4 /* DiffableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

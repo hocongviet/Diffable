@@ -13,8 +13,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let vc1 = UINavigationController(rootViewController: EmployeesViewController())
-        let vc2 = UINavigationController(rootViewController: EmployeesViewController2())
+        let vc1 = UINavigationController(rootViewController: DiffableViewController())
+        let vc2 = UINavigationController(rootViewController: ReloadDataViewController())
         viewControllers = [vc1, vc2]
     }
 
