@@ -68,14 +68,8 @@
 		EA3ED5B223AC4AAC00C9ADA4 /* Diffable */ = {
 			isa = PBXGroup;
 			children = (
-				EA3ED5B323AC4AAC00C9ADA4 /* AppDelegate.swift */,
-				EA3ED5B523AC4AAC00C9ADA4 /* SceneDelegate.swift */,
-				EA3ED5C723AC4ACD00C9ADA4 /* TabBarController.swift */,
-				EA3ED5D123AC528500C9ADA4 /* ReloadDataViewController.swift */,
-				EA3ED5C923AC4B1000C9ADA4 /* DiffableViewController.swift */,
-				EA3ED5CD23AC4B6A00C9ADA4 /* LabelCell.swift */,
-				EA3ED5CF23AC4B9700C9ADA4 /* RawData.swift */,
-				EA3ED5CB23AC4B3400C9ADA4 /* EmployeeModel.swift */,
+				EADAB8E223AC5A9B002F78AC /* App */,
+				EADAB8E323AC5AA4002F78AC /* Scenes */,
 				EA3ED5B723AC4AAC00C9ADA4 /* ViewController.swift */,
 				EA3ED5B923AC4AAC00C9ADA4 /* Main.storyboard */,
 				EA3ED5BC23AC4AAE00C9ADA4 /* Assets.xcassets */,
@@ -83,6 +77,36 @@
 				EA3ED5C123AC4AAE00C9ADA4 /* Info.plist */,
 			);
 			path = Diffable;
+			sourceTree = "<group>";
+		};
+		EADAB8E223AC5A9B002F78AC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EA3ED5B323AC4AAC00C9ADA4 /* AppDelegate.swift */,
+				EA3ED5B523AC4AAC00C9ADA4 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EADAB8E323AC5AA4002F78AC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EADAB8E423AC5AAB002F78AC /* Cell */,
+				EA3ED5C723AC4ACD00C9ADA4 /* TabBarController.swift */,
+				EA3ED5D123AC528500C9ADA4 /* ReloadDataViewController.swift */,
+				EA3ED5C923AC4B1000C9ADA4 /* DiffableViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EADAB8E423AC5AAB002F78AC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EA3ED5CF23AC4B9700C9ADA4 /* RawData.swift */,
+				EA3ED5CB23AC4B3400C9ADA4 /* EmployeeModel.swift */,
+				EA3ED5CD23AC4B6A00C9ADA4 /* LabelCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
